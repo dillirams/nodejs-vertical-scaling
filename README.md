@@ -13,4 +13,16 @@ This allows us to utilize **all available CPU cores** in a single machine, makin
 
 > 💡 In simple terms: Clustering creates **multiple worker processes** (one per CPU core) that share the same server port, allowing Node.js to handle **more requests in parallel** without being stuck on a single thread.
 
----
+## 🔎 Difference from Multi-threaded Languages
+
+- **Rust, Python, Java, C++** (multi-threaded languages)  
+  These languages can natively create and manage multiple threads, allowing them to distribute work across **all available CPU cores**. This makes them highly efficient in parallel processing and computation-heavy tasks.
+
+- **Node.js (single-threaded)**  
+  Node.js runs its event loop on a single thread, which means it cannot fully utilize multiple CPU cores by default. Even if your system has 8 cores, Node.js will only use 1 core unless you explicitly scale it.
+## 📊 Monitoring CPU Usage
+
+You can use the `htop` command in Linux or macOS to see how your application uses the CPU cores in real time:
+
+```bash
+htop
